@@ -1,0 +1,59 @@
+table.grid{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 300px;
+  left: 640px;
+}
+
+td.cell{
+  border: 0.5px solid black;
+}
+#c1{
+  background-color: rgb(218, 33, 33);
+}
+#c2{
+  background-color: rgb(36, 175, 29);
+}
+#c3{
+  background-color: rgb(14, 128, 201);
+}
+#c4{
+  background-color: rgb(255, 170, 6);
+}
+
+#startButton{
+  color: rgb(81, 142, 71);
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 750px;
+  left:790px;
+}
+.displayBlock{
+  width: 100%;
+  height: 250px;
+}
+.gameName{
+  float: left;
+  width: 400px;
+  height: 250px;
+}
+.displayColorBlock{
+  float: right;
+  width: 1264px;
+  height: 250px;
+}
+#colorName{
+  text-align: center;
+  font-size: 70px;
+  color: green;
+}
+/*div.colorGridSpace{
+  width: 400px;
+  height: 250px;
+}
+div.gameName{
+  width: 400px;
+  height: 250px;
+}*/
