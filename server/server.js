@@ -10,6 +10,7 @@ const getContentType=function(requestFile){
     '.jpeg':'image/jpeg',
     '.jpg':'image/jpg',
     '.gif':'image/gif',
+    '.png':'image/png',
     '.pdf':'application/pdf',
   }
   return contentType[requestFile];
@@ -24,9 +25,8 @@ const isFileExist=function(file){
 };
 
 const requestHandler=function(req,res){
-
-  let file=req.url.slice(1);
-
+  let file='../public'+req.url;
+  console.log(file);
   if(isFileExist(file)){
 
     let requestFileExtension=file.slice(file.lastIndexOf('.'));
