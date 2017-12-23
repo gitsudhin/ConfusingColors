@@ -48,12 +48,13 @@ const showRequestLog=function(req,fileUrl){
 }
 
 const requestHandler=function(req,res){
-  
-  let fileUrl='../public'+req.url;
+
+  let fileUrl='..'+req.url;
   showRequestLog(req,fileUrl);
+  console.log(fileUrl);
 
   if(req.url=='/'){
-    fileUrl='../public/index.html';
+    fileUrl='../index.html';
   }
   if(isFileExist(fileUrl)){
     actionForFileExists(fileUrl,res);
