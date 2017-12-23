@@ -10,11 +10,11 @@ const startGame=function(){
     score=0;
     startButton.style.display="none";
     timer = setInterval(function(){ startTimer() },1000);
-    showColorAndVerifyClick(startButton);
+    showColorAndVerifyClick();
   }
 };
 
-const showColorAndVerifyClick=function(startButton){
+const showColorAndVerifyClick=function(){
   let grid=document.getElementById('grid');
   let displayColor=document.getElementById('colorName');
   let scoreBlock=document.getElementById('scoreValue');
@@ -26,13 +26,11 @@ const showColorAndVerifyClick=function(startButton){
 };
 
 const clickOnColorAction=function(realFontColor,scoreBlock){
-  grid.onclick=function(event) {
-    console.log(event.target.id);
-    if(realFontColor==getCellColor(event.target.id)){
+  grid.onclick=function(event){
+    if(realFontColor==getCellColor(event.target.id))
       correctClickAction(scoreBlock);
-    }else {
+    else
       gameOverAction();
-    }
   }
 };
 
@@ -43,15 +41,28 @@ const isInvalidClick=function(cellID){
 
 const gameOverAction=function(){
   let displayColor=document.getElementById('colorName');
-  displayColor.innerText='Game Over';
-  displayColor.style.color='grey';
-  clearInterval(timer);
   let restartButton=document.getElementById('restartButton');
   let startButton=document.getElementById('startButton');
+  clearInterval(timer);
+  displayColor.innerText='Game Over';
+  displayColor.style.color='grey';
   restartButton.style.visibility='visible';
   startButton.style.visibility='hidden';
-  restartButton.onclick=(event)=>{location.reload();};
+  // let playerName=prompt('Enter Your name');
+  // updateLeaderboards(playerName);
+  restartButton.onclick=(event)=>{location.reload()};
 };
+//
+// const updateLeaderboards=function(playerName){
+//   let dbContent=JSON.parse(getFileContent('../data/leaderBoard.txt'));
+//   if(dbContent[0].score<score){
+//     dbContent=[{'score':score,'name':playerName}];
+//     fs.writeFileSync('../data/leaderBoard.txt',);
+//     let displayColor=document.getElementById('colorName');
+//     let message=`You beaten ${dbcontent.name}'s highscore ${dbcontent.score}`;
+//     dispalyColor.innerText=message;
+//   }
+// };
 
 const correctClickAction=function(scoreBlock){
   score++;

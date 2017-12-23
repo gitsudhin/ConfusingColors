@@ -16,29 +16,48 @@ const getContentType=function(requestFile){
   return contentType[requestFile];
 };
 
-const isInvalidFile=function(file){
-  return file=='favicon.ico';
+const setContentType=function(fileUrl,res){
+  let requestFileExtension=fileUrl.slice(fileUrl.lastIndexOf('.'));
+  let contentType=getContentType(requestFileExtension);
+  res.writeHead(200,{'content-type':contentType});
 };
 
-const isFileExist=function(file){
-  return fs.existsSync(file);
+const isInvalidFile=function(fileUrl){
+  return fileUrl=='favicon.ico' || !isFileExist(fileUrl);
+};
+
+const isFileExist=function(fileUrl){
+  return fs.existsSync(fileUrl);
+};
+
+const actionForFileExists=function(fileUrl,res){
+  setContentType(fileUrl,res);
+  let content=getFileContent(fileUrl,null);
+  res.write(content);
+  res.end();
+}
+
+const getFileContent=function(file,encoding='utf8'){
+  return  fs.readFileSync(file,encoding);
 };
 
 const requestHandler=function(req,res){
-  let file='../public'+req.url;
-  console.log(file);
-  if(isFileExist(file)){
+  let fileUrl='../public'+req.url;
+  let date=new Date();
+  date=date.toLocaleString();
+  console.log(`${date} ${req.method} ${fileUrl}`);
 
-    let requestFileExtension=file.slice(file.lastIndexOf('.'));
-    let contentType=getContentType(requestFileExtension);
-    res.writeHead(200,{'content-type':contentType});
-
-    let content=fs.readFileSync(file);
-    res.write(content);
+  if(req.url=='/'){
+    fileUrl='../public/index.html';
   }
-
-  if(isInvalidFile(file)){
+  if(isFileExist(fileUrl)){
+    actionForFileExists(fileUrl,res);
+    return;
+  }
+  if(isInvalidFile(fileUrl)){
     res.statusCode=404;
+    res.write('Page not Found');
+    res.end();
   }
   res.end();
 };
