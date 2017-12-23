@@ -30,6 +30,10 @@ const isFileExist=function(fileUrl){
   return fs.existsSync(fileUrl);
 };
 
+const getFileContent=function(file,encoding='utf8'){
+  return  fs.readFileSync(file,encoding);
+};
+
 const actionForFileExists=function(fileUrl,res){
   setContentType(fileUrl,res);
   let content=getFileContent(fileUrl,null);
@@ -37,15 +41,16 @@ const actionForFileExists=function(fileUrl,res){
   res.end();
 }
 
-const getFileContent=function(file,encoding='utf8'){
-  return  fs.readFileSync(file,encoding);
-};
-
-const requestHandler=function(req,res){
-  let fileUrl='../public'+req.url;
+const showRequestLog=function(req,fileUrl){
   let date=new Date();
   date=date.toLocaleString();
   console.log(`${date} ${req.method} ${fileUrl}`);
+}
+
+const requestHandler=function(req,res){
+  
+  let fileUrl='../public'+req.url;
+  showRequestLog(req,fileUrl);
 
   if(req.url=='/'){
     fileUrl='../public/index.html';

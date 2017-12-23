@@ -34,9 +34,60 @@ const clickOnColorAction=function(realFontColor,scoreBlock){
   }
 };
 
-const isInvalidClick=function(cellID){
-  let validIDs=['cell1','cell2','cell3','cell4'];
-  return !validIDs.includes(cellID);
+const correctClickAction=function(scoreBlock){
+  score++;
+  scoreBlock.innerText=score;
+  showColorAndVerifyClick();
+};
+
+const startTimer=function(){
+  if(countDown>=0){
+    document.getElementById("timerBlock").innerHTML = countDown;
+    countDown--;
+  }else
+    gameOverAction()
+};
+
+const getCellColor=function(cellID){
+  let color={
+    'cell1':'RED',
+    'cell2':'GREEN',
+    'cell3':'BLUE',
+    'cell4':'YELLOW',
+  };
+  return color[cellID];
+};
+
+const getColor=function(index){
+  let color={
+    '1':'RED',
+    '2':'GREEN',
+    '3':'BLUE',
+    '4':'YELLOW',
+  };
+  return color[index];
+};
+
+const getFontColor=function(index){
+  let color={
+    '1':'RED',
+    '2':'rgb(36, 171, 49)',
+    '3':'rgb(51, 83, 222)',
+    '4':'rgb(246, 198, 30)',
+  };
+  return color[index];
+};
+
+const getRandomColorName=function(){
+  let colorIndex=Math.ceil(Math.random()*4);
+  let color=getColor(colorIndex);
+  return color;
+};
+
+const getRandomFontColor=function(){
+  let colorIndex=Math.ceil(Math.random()*4);
+  let color=getFontColor(colorIndex);
+  return color;
 };
 
 const gameOverAction=function(){
@@ -63,52 +114,6 @@ const gameOverAction=function(){
 //     dispalyColor.innerText=message;
 //   }
 // };
-
-const correctClickAction=function(scoreBlock){
-  score++;
-  scoreBlock.innerText=score;
-  showColorAndVerifyClick();
-};
-
-const startTimer=function(){
-  if(countDown>=0){
-    document.getElementById("timerBlock").innerHTML = countDown;
-    countDown-=1;
-  }else {
-    gameOverAction()
-  }
-};
-
-const getFontColor=function(index){
-  let color={
-    '1':'RED',
-    '2':'GREEN',
-    '3':'BLUE',
-    '4':'YELLOW',
-  };
-  return color[index];
-};
-
-const getCellColor=function(cellID){
-  let color={
-    'cell1':'RED',
-    'cell2':'GREEN',
-    'cell3':'BLUE',
-    'cell4':'YELLOW',
-  };
-  return color[cellID];
-};
-
-const getRandomColorName=function(){
-  let colorIndex=Math.ceil(Math.random()*4);
-  let color=getFontColor(colorIndex);
-  return color;
-};
-const getRandomFontColor=function(){
-  let colorIndex=Math.ceil(Math.random()*4);
-  let color=getFontColor(colorIndex);
-  return color=='YELLOW' ? 'rgb(246, 198, 30)' : color;
-};
 
 
 window.onload=startGame;
