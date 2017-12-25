@@ -1,36 +1,64 @@
 let score=0;
-let timer;
 let countDown=30;
+let realFontColor='';
+let showingFontColor='';
+let timer;
 
 const startGame=function(){
   let startButton=document.getElementById('startButton');
   let restartButton=document.getElementById('restartButton');
+  let hintButton=document.getElementById('hint');
   restartButton.style.visibility='hidden';
-  startButton.onclick=function(event){
-    score=0;
-    startButton.style.display="none";
-    timer = setInterval(function(){ startTimer() },1000);
-    showColorAndVerifyClick();
-  }
+  startButton.onclick=(event)=>{startButtonAction(startButton,restartButton)};
+  hintButton.onclick=(event)=>{hintButtonAction(hintButton)};
+  restartButton.onclick=(event)=>{location.reload()};
+};
+
+const startButtonAction=function(startButton,restartButton){
+  score=0;
+  startButton.style.visibility='hidden';
+  restartButton.style.visibility='visible';
+  timer = setInterval(function(){ startTimer() },1000);
+  showColorAndVerifyClick();
+};
+
+const hintButtonAction=function(hintButton){
+  let hintHeading=document.getElementById('hintHeading');
+  let hintContent=document.getElementById('hintContent');
+  hintHeading.innerText="Instructions";
+  hintContent.innerHTML="Click on the color blocks which mentioned on the top. 30 seconds is the time interval!<br>~~~Good Luck~~~";
+  hintHeading.style.visibility="visible";
+  hintContent.style.visibility="visible";
+  setTimeout(function(){
+    hintHeading.style.visibility="hidden";
+    hintContent.style.visibility="hidden";
+  },6000);
 };
 
 const showColorAndVerifyClick=function(){
   let grid=document.getElementById('grid');
   let displayColor=document.getElementById('colorName');
   let scoreBlock=document.getElementById('scoreValue');
-  let realFontColor=getRandomColorName();
-  let showingFontColor=getRandomFontColor();
+  realFontColor=getRandomColorName();
+  showingFontColor=getRandomFontColor();
   displayColor.innerText=realFontColor;
   displayColor.style.color=showingFontColor;
-  clickOnColorAction(realFontColor,scoreBlock);
+  displayColor.style.animation='fadeIn 3s';
+  clickOnColorAction(grid,scoreBlock);
 };
 
-const clickOnColorAction=function(realFontColor,scoreBlock){
-  grid.onclick=function(event){
-    if(realFontColor==getCellColor(event.target.id))
-      correctClickAction(scoreBlock);
-    else
-      gameOverAction();
+const clickOnColorAction=function(grid,scoreBlock){
+  grid.onclick=(event)=>{
+    performClickAction(event.target.id,scoreBlock);
+  };
+};
+
+const performClickAction=function(id,scoreBlock){
+  if(realFontColor==getCellColor(id)){
+    correctClickAction(scoreBlock);
+  }
+  else{
+    gameOverAction();
   }
 };
 
@@ -44,8 +72,9 @@ const startTimer=function(){
   if(countDown>=0){
     document.getElementById("timerBlock").innerHTML = countDown;
     countDown--;
-  }else
-    gameOverAction()
+  }else{
+    gameOverAction();
+  }
 };
 
 const getCellColor=function(cellID){
@@ -56,16 +85,6 @@ const getCellColor=function(cellID){
     'cell4':'YELLOW',
   };
   return color[cellID];
-};
-
-const getColor=function(index){
-  let color={
-    '1':'RED',
-    '2':'GREEN',
-    '3':'BLUE',
-    '4':'YELLOW',
-  };
-  return color[index];
 };
 
 const getFontColor=function(index){
@@ -79,8 +98,8 @@ const getFontColor=function(index){
 };
 
 const getRandomColorName=function(){
-  let colorIndex=Math.ceil(Math.random()*4);
-  let color=getColor(colorIndex);
+  let colorIndex=`cell${Math.ceil(Math.random()*4)}`;
+  let color=getCellColor(colorIndex);
   return color;
 };
 
@@ -91,29 +110,16 @@ const getRandomFontColor=function(){
 };
 
 const gameOverAction=function(){
+  let grid=document.getElementById('grid');
   let displayColor=document.getElementById('colorName');
-  let restartButton=document.getElementById('restartButton');
   let startButton=document.getElementById('startButton');
-  clearInterval(timer);
+  let scoreBlock=document.getElementById('scoreValue');
   displayColor.innerText='Game Over';
   displayColor.style.color='grey';
-  restartButton.style.visibility='visible';
+  displayColor.style.animation='fadeIn 3s';
   startButton.style.visibility='hidden';
-  // let playerName=prompt('Enter Your name');
-  // updateLeaderboards(playerName);
-  restartButton.onclick=(event)=>{location.reload()};
+  clearInterval(timer);
+  grid.onclick=(event)=>{displayColor.innerText='Game Over'};
 };
-//
-// const updateLeaderboards=function(playerName){
-//   let dbContent=JSON.parse(getFileContent('../data/leaderBoard.txt'));
-//   if(dbContent[0].score<score){
-//     dbContent=[{'score':score,'name':playerName}];
-//     fs.writeFileSync('../data/leaderBoard.txt',);
-//     let displayColor=document.getElementById('colorName');
-//     let message=`You beaten ${dbcontent.name}'s highscore ${dbcontent.score}`;
-//     dispalyColor.innerText=message;
-//   }
-// };
-
 
 window.onload=startGame;

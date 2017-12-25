@@ -51,7 +51,6 @@ const requestHandler=function(req,res){
 
   let fileUrl='..'+req.url;
   showRequestLog(req,fileUrl);
-  console.log(fileUrl);
 
   if(req.url=='/'){
     fileUrl='../index.html';

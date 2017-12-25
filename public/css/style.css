@@ -1,9 +1,137 @@
+.mainContainer{
+  width: 100%;
+  height:800px;
+}
+.titleBlock{
+  width: 100%;
+  height: 9%;
+}
+.centerBlock{
+  width: 100%;
+  height: 91%;
+}
+.optionBlock{
+  float: left;
+  width:38%;
+  height: 100%;
+}
+.optionButtons{
+  width: 100%;
+  height: 26%;
+}
+.hintBlock{
+  width: 100%;
+  height: 74%;
+}
+.hintHeading{
+  text-align: center;
+  font-size: 40px;
+  font-family: Avenir;
+  color:rgb(45, 131, 245);
+  animation: fadeIn 9s;
+  width: 100%;
+  height: 20%;
+}
+.hintContentBlock{
+  text-align: center;
+  font-size: 20px;
+  font-family: Avenir;
+  color:rgb(68, 67, 67);
+  animation: fadeIn 9s;
+  width: 100%;
+  height: 80%;
+}
+.boardAndButtons{
+  float: right;
+  width:62%;
+  height:100%;
+}
+.colorNameBlock{
+  width: 100%;
+  height: 20%;
+}
+.colorName{
+  animation: fadeIn 3s;
+  width: 40%;
+  height: 100%;
+}
+.tableAndScoreBlock{
+  width: 100%;
+  height: 80%;
+}
+.gridBlock{
+  float:left;
+  width: 39%;
+  height: 100%;
+}
+.tableBlock{
+  text-align: center;
+  width: 100%;
+  height: 75%;
+}
+.buttonBlock{
+  text-align: center;
+  width: 100%;
+  height: 25%;
+}
+.scoreAndTimerBlock{
+  float: right;
+  width: 61%;
+  height: 100%;
+}
+.timerBlock{
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  font-size: 80px;
+  font-family: Avenir;
+  color: rgb(245, 7, 7);
+}
+.scoreTitleBlock{
+  width: 100%;
+  height: 15%;
+  font-size: 50px;
+  font-family:Avenir;
+  color:rgb(68, 67, 67);
+}
+.scoreBlock{
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  font-size: 90px;
+  font-family:Avenir;
+  color:rgb(133, 133, 133);
+}
+.HighscoreBlock{
+  width: 100%;
+  height: 35%;
+}
+
+
+
+
+#title{
+  position:fixed;
+  top: -40px;
+  left: 30px;
+  font-size: 40px;
+  font-family:Avenir;
+  color:rgb(45, 131, 245);
+}
+.hori_line1{
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  height: 1px;
+  background: rgba(3, 3, 3, 0.31) ;
+}
+#grid{
+  /*position: relative;
+  left: 15%;*/
+}
 table.grid{
   width: 400px;
   height: 400px;
-  position: absolute;
-  top: 300px;
-  left: 640px;
   border-spacing: unset;
 }
 
@@ -20,101 +148,45 @@ table.grid{
   background-color: rgb(255, 170, 6);
 }
 
-#startButton{
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  top: 750px;
-  left:802px;
-}
-#restartButton{
-  width: 90px;
-  height: 90px;
-  position: absolute;
-  top: 750px;
-  left:802px;
-
-}
-.tableBlock{
-  width: 100%;
-  height: 410px;
-}
-.displayBlock{
-  width: 100%;
-  height: 150px;
-}
-.colorNameBlock{
-  /*float:right;*/
-  width: 100%;
-  height: 150px;
-}
-.gameName{
-  width: 594px;
-  height: 150px;
-}
-.scoreHeading{
-  position: absolute;
-  top: 400px;
-  right: 0px;
-  width: 600px;
-  height: 150px;
-}
-.scoreBlock{
-  position: absolute;
-  top: 420px;
-  right:0px;
-  font-size: 90px;
-  font-family:Avenir;
-  width: 600px;
-  height: 200px;
-}
 #colorName{
   text-align: center;
   font-family:Avenir;
-  font-size: 70px;
+  font-size: 3.5em;
+  color: rgb(119, 119, 119) ;
+}
+
+#timerLogo{
+  text-align: center;
+  width: 60px;
+  height: 60px;
+}
+#timer{
+  font-family:Avenir;
+  font-size: 60px;
+}
+
+#scoreTitle{
+  text-align: center;
+  left: 40%;
 }
 #scoreValue{
   text-align: center;
-  color:rgb(133, 133, 133);
 }
-#score{
-  text-align: center;
-  font-size: 50px;
-  font-family:Avenir;
-  color:rgb(68, 67, 67);
-}
-.titleBlock{
-  width: 100%;
-  height: 100px;
-}
-#title{
-  position: fixed;
-  top: -40px;
-  left: 30px;
-  font-size: 40px;
-  font-family:Avenir;
-  color:rgb(45, 131, 245);
-}
-.timerBlock{
+#startButton{
   float: right;
-  text-align: center;
-  font-size: 80px;
-  font-family: Avenir;
-  color: rgb(245, 7, 7);
-  width: 600px;
-  height: 150px;
+  width: 60px;
+  height: 60px;
 }
-.hori_line1{
-  position: fixed;
-  top: 70px;
-  width: 100%;
-  height: 2px;
-  background: rgba(3, 3, 3, 0.31) ;
+#restartButton{
+  float: left;
+  width: 55px;
+  height: 55px;
 }
-#timerLogo{
-  position: absolute;
-  top: 320px;
-  right: 270px;
-  width: 70px;
-  height: 70px;
+#hint{
+  width: 60px;
+  height: 60px;
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }
