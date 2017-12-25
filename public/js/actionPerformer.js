@@ -1,6 +1,6 @@
 let score=0;
 let countDown=30;
-let realFontColor='';
+let fontColorName='';
 let showingFontColor='';
 let timer;
 
@@ -39,9 +39,9 @@ const showColorAndVerifyClick=function(){
   let grid=document.getElementById('grid');
   let displayColor=document.getElementById('colorName');
   let scoreBlock=document.getElementById('scoreValue');
-  realFontColor=getRandomColorName();
+  fontColorName=getRandomColorName();
   showingFontColor=getRandomFontColor();
-  displayColor.innerText=realFontColor;
+  displayColor.innerText=fontColorName;
   displayColor.style.color=showingFontColor;
   displayColor.style.animation='fadeIn 3s';
   clickOnColorAction(grid,scoreBlock);
@@ -54,7 +54,7 @@ const clickOnColorAction=function(grid,scoreBlock){
 };
 
 const performClickAction=function(id,scoreBlock){
-  if(realFontColor==getCellColor(id)){
+  if(fontColorName==getCellColor(id)){
     correctClickAction(scoreBlock);
   }
   else{
