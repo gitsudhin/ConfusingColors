@@ -26,7 +26,7 @@ const hintButtonAction=function(hintButton){
   let hintHeading=document.getElementById('hintHeading');
   let hintContent=document.getElementById('hintContent');
   hintHeading.innerText="Instructions";
-  hintContent.innerHTML="Click on the color blocks which mentioned on the top. 30 seconds is the time interval!<br>~~~Good Luck~~~";
+  hintContent.innerHTML="Click on the color blocks which mentioned on the top. 30 seconds is the time limit!<br>~~~Good Luck~~~";
   hintHeading.style.visibility="visible";
   hintContent.style.visibility="visible";
   setTimeout(function(){
