@@ -1,3 +1,4 @@
+"use strict";
 const http = require('http');
 const fs = require('fs');
 const port=9009;
@@ -12,7 +13,7 @@ const getContentType=function(requestFile){
     '.gif':'image/gif',
     '.png':'image/png',
     '.pdf':'application/pdf',
-  }
+  };
   return contentType[requestFile];
 };
 
@@ -39,13 +40,13 @@ const actionForFileExists=function(fileUrl,res){
   let content=getFileContent(fileUrl,null);
   res.write(content);
   res.end();
-}
+};
 
 const showRequestLog=function(req,fileUrl){
   let date=new Date();
   date=date.toLocaleString();
   console.log(`${date} ${req.method} ${fileUrl}`);
-}
+};
 
 const requestHandler=function(req,res){
 
