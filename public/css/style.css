@@ -1,10 +1,10 @@
 .mainContainer{
   width: 100%;
-  height:800px;
+  height:700px;
 }
 .titleBlock{
   width: 100%;
-  height: 9%;
+  height: 8%;
 }
 .centerBlock{
   width: 100%;
@@ -67,12 +67,12 @@
 .tableBlock{
   text-align: center;
   width: 100%;
-  height: 75%;
+  height: 85%;
 }
 .buttonBlock{
   text-align: center;
   width: 100%;
-  height: 25%;
+  height: 15%;
 }
 .scoreAndTimerBlock{
   float: right;
@@ -102,19 +102,16 @@
   font-family:Avenir;
   color:rgb(133, 133, 133);
 }
-.HighscoreBlock{
+.highscoreBlock{
   width: 100%;
   height: 35%;
 }
-
-
-
 
 #title{
   position:fixed;
   top: -40px;
   left: 30px;
-  font-size: 40px;
+  font-size: 2.4em;
   font-family:Avenir;
   color:rgb(45, 131, 245);
 }
@@ -124,10 +121,6 @@
   width: 100%;
   height: 1px;
   background: rgba(3, 3, 3, 0.31) ;
-}
-#grid{
-  /*position: relative;
-  left: 15%;*/
 }
 table.grid{
   width: 400px;

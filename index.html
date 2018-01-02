@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="description" content="Confusing Colors">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="Developer" content="Sudhin">
     <meta property="og:image" content="https://seeklogo.com/images/C/c-colour-letter-logo-92757BD281-seeklogo.com.png">
     <meta name="description" content="Confusing Colors is a simple color game.">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Sudhin">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1 height=device-height">
     <title>Confuse</title>
     <link rel="icon" type="image/png" href="./public/img/logo.png" />
     <link rel="stylesheet" href="./public/css/style.css">
-    <script src="./public/js/actionPerformer.js " charset="utf-8"></script>
+    <!-- <script src="./public/js/actionPerformer.js " charset="utf-8"></script> -->
+    <script src="./src/game.js" charset="utf-8"></script>
+    <script src="./src/mainController.js" charset="utf-8"></script>
+    <script src="./src/showLabels.js" charset="utf-8"></script>
+    <script src="./src/utils.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="mainContainer">
@@ -61,7 +62,7 @@
               </div>
               <div class="scoreTitleBlock" id=scoreTitle>Score</div>
               <div class="scoreBlock" id=scoreValue>0</div>
-              <div class="HighscoreBlock" id='HighscoreBlock'></div>
+              <div class="highscoreBlock" id='highscoreBlock'></div>
             </div>
           </div>
         </div>
