@@ -8,17 +8,18 @@
     <meta name="keywords" content="HTML,CSS,JavaScript">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1 height=device-height">
     <title>Confuse</title>
-    <link rel="icon" type="image/png" href="./img/logo.png" />
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="/game.js" charset="utf-8"></script>
-    <script src="/mainController.js" charset="utf-8"></script>
-    <script src="/showLabels.js" charset="utf-8"></script>
-    <script src="/utils.js" charset="utf-8"></script>
+    <link rel="icon" type="image/png" href="./public/img/logo.png" />
+    <link rel="stylesheet" href="./public/css/style.css">
+    <!-- <script src="./public/js/actionPerformer.js " charset="utf-8"></script> -->
+    <script src="./src/game.js" charset="utf-8"></script>
+    <script src="./src/mainController.js" charset="utf-8"></script>
+    <script src="./src/showLabels.js" charset="utf-8"></script>
+    <script src="./src/utils.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="mainContainer">
       <div class="titleBlock">
-        <a href="./homePage.html"><h4 id="title">Confuse</h4></a>
+        <a href="./index.html"><h4 id="title">Confuse</h4></a>
         <hr class="hori_line1"></hr>
       </div>
       <div class="centerBlock">
@@ -49,15 +50,15 @@
               </div>
               <div class="buttonBlock">
                 <div class="buttonBlockLeft">
-                  <img id='startButton' src="./img/next.png">
-                  <img id='restartButton' src="./img/refresh.png">
-                  <img id='hint' src="./img/instruction.png">
+                  <img id='startButton' src="./public/img/next.png">
+                  <img id='restartButton' src="./public/img/refresh.png">
+                  <img id='hint' src="./public/img/instruction.png">
                 </div>
               </div>
             </div>
             <div class="scoreAndTimerBlock">
               <div class="timerBlock" id=timerBlock>
-                <img id='timerLogo' src="./img/timer.png">
+                <img id='timerLogo' src="./public/img/timer.png">
               </div>
               <div class="scoreTitleBlock" id=scoreTitle>Score</div>
               <div class="scoreBlock" id=scoreValue>0</div>
