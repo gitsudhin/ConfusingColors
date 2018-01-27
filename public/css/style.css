@@ -70,6 +70,7 @@
   height: 85%;
 }
 .buttonBlock{
+  animation: fadeIn 9s;
   text-align: center;
   width: 100%;
   height: 15%;
@@ -105,6 +106,23 @@
 .highscoreBlock{
   width: 100%;
   height: 35%;
+}
+#modeButtons{
+  width: 300px;
+  height: 40px;
+  font-family:Avenir;
+  font-size: 15px;
+  text-align: center;
+  color:black;
+  background-color:rgb(133, 133, 133);
+}
+#modeButtonsActive{
+  width: 300px;
+  height: 40px;
+  font-family:Avenir;
+  font-size: 15px;
+  text-align: center;
+  color:rgb(45, 131, 245);
 }
 
 #title{
@@ -149,11 +167,13 @@ table.grid{
 }
 
 #timerLogo{
+  animation: fadeIn 9s;
   text-align: center;
   width: 60px;
   height: 60px;
 }
 #timer{
+  animation: fadeIn 9s;
   font-family:Avenir;
   font-size: 60px;
 }

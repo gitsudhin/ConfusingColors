@@ -1,9 +1,9 @@
 const showColorName=function(fontColor,colorName){
 
   let displayColor=document.getElementById('colorName');
+  displayColor.style.animation='fadeIn 3s';
   displayColor.innerText=colorName;
   displayColor.style.color=fontColor;
-  displayColor.style.animation='fadeIn 3s';
 };
 
 const showUpdatedScore=function(score){
@@ -17,9 +17,11 @@ const showRemainingTime=function(countDown){
 const showInstructions=function(){
   let instructionHeading=document.getElementById('hintHeading');
   let instructions=document.getElementById('hintContent');
+  let instructionText="Click on the color blocks which mentioned on the top.";
+  instructionText+=" 30 seconds is the time interval!<br>~~~Good Luck~~~";
 
   instructionHeading.innerText="Instructions";
-  instructions.innerHTML="Click on the color blocks which mentioned on the top. 30 seconds is the time interval!<br>~~~Good Luck~~~";
+  instructions.innerHTML=instructionText;
   changeVisibility(instructionHeading,'visible');
   changeVisibility(instructions,'visible');
 
