@@ -6,7 +6,6 @@ const Game=function(countDownTime){
   this.score=0;
 };
 Game.prototype={
-
   getColorName:function(){
     return this.colorName;
   },
